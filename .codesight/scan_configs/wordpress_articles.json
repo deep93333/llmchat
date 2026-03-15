@@ -1,0 +1,20 @@
+{
+  "name": "WordPress Articles",
+  "description": "Upload articles to WordPress via Zapier",
+  "webhook": "https://hooks.zapier.com/hooks/catch/20829203/2clbbrw/",
+  "patterns": ["article*.md"],
+  "actions": {
+    "on_create": {
+      "type": "webhook",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body_template": {
+        "title": "{{title}}",
+        "content": "{{content}}",
+        "status": "draft"
+      }
+    }
+  }
+} 

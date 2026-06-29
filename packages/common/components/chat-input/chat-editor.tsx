@@ -27,7 +27,7 @@ export const ChatEditor: FC<TChatEditor> = ({
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
         if (isGenerating) return;
-        if (e.key === 'Enter' && !e.shiftKey) {
+        if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) {
             sendMessage?.(editor.getText());
         }
         if (e.key === 'Enter' && e.shiftKey) {
